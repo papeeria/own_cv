@@ -24,6 +24,8 @@
 \RequirePackage[margin=2cm]{geometry}
 \RequirePackage{fontawesome}
 \RequirePackage{setspace}
+\RequirePackage{tikz}
+
 
 %% v1.1: Optionally load academicons
 \if@academicons
@@ -36,6 +38,39 @@
 \fi
 
 \RequirePackage{xcolor}
+\definecolor{white}{RGB}{255,255,255}
+
+\definecolor{darkgray}{HTML}{333333}
+\definecolor{gray}{HTML}{4D4D4D}
+\definecolor{sidecolor}{HTML}{E7E7E7}
+\definecolor{lightgray}{HTML}{999999}
+
+\definecolor{green}{HTML}{C2E15F}
+\definecolor{orange}{HTML}{FDA333}
+\definecolor{purple}{HTML}{D3A4F9}
+\definecolor{red}{HTML}{FB0B00}
+\definecolor{blue}{HTML}{6CE0F1}
+\definecolor{mainblue}{HTML}{0E5484}
+\definecolor{maingray}{HTML}{B9B9B9}
+\definecolor{maindarkgray}{HTML}{B3B3B3}
+\ifdefined\@cv@print
+  \colorlet{green}{gray}
+  \colorlet{orange}{gray}
+  \colorlet{purple}{gray}
+  \colorlet{red}{gray}
+  \colorlet{blue}{gray}
+  \colorlet{fillheader}{white}
+  \colorlet{asidecolor}{sidecolor}
+  \colorlet{header}{gray}
+\else
+  \colorlet{fillheader}{gray}
+  \colorlet{header}{white}
+  \colorlet{asidecolor}{sidecolor}
+\fi
+
+
+\colorlet{textcolor}{gray}
+\colorlet{headercolor}{gray}
 
 \colorlet{accent}{blue!70!black}
 \colorlet{heading}{black}
@@ -176,6 +211,23 @@
 \foreach \x in {1,...,5}{%
   \space{\ifnumgreater{\x}{#2}{\color{body!30}}{\color{accent}}\faCircle}}\par%
 }
+
+\newcommand\skills[1]{ 
+
+\renewcommand{\givenskill}{
+\noindent
+\begin{tikzpicture}
+\foreach [count=\i] \x/\y in {#1}
+{
+
+\draw[fill=maingray,maingray] (0,\i) rectangle (6,\i+0.4);
+\draw[fill=white,mainblue](0,\i) rectangle (\y,\i+0.4);
+\node [above right ] at (0,\i+0.4) {\x};
+}
+\end{tikzpicture}
+}
+}
+\newcommand{\givenskill}{}
 
 
 
