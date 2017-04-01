@@ -43,6 +43,8 @@
 \usepackage[english,russian]{babel}   %% загружает пакет многоязыковой вёрстки
 \usepackage{fontspec} 
 \usepackage{setspace}
+\usepackage{multicol}
+\usepackage{hyperref} 
 
 % If using xelatex or lualatex:
 \setmainfont{Lato}
@@ -72,12 +74,12 @@
 \personalinfo{%
   % Not all of these are required!
   % You can add your own with \printinfo{symbol}{detail}
-  \email{Lavton@gmail.cpm}
+  \email{Lavton@gmail.com}
   \phone{+7(904)635-52-51}
   \location{Санкт-Петербург, Россия}
-  \linkedin{linkedin.com/in/lavton/}
-  \github{github.com/Lavton}
-  \vk{vk.com/lavton}
+  \linkedin{\href{https://linkedin.com/in/lavton/}{linkedin.com/in/lavton/}}
+  \github{\href{https://github.com/Lavton}{github.com/Lavton}}
+  \vk{\href{https://vk.com/lavton}{vk.com/lavton}}
   
 
   %% You MUST add the academicons option to \documentclass, then compile with LuaLaTeX or XeLaTeX, if you want to use \orcid or other academicons commands.
@@ -109,7 +111,7 @@
 \item Искал ошибки в условиях и решениях
 \item Тестировал работу с сайтом с точки зрения пользователя
 \end{itemize}
-\cvtag{black box testing}
+%\cvtag{black box testing}
 \divider
 
 \cvevent{Преподаватель физики}{Формула Единства}{лето 2015, зима 2016}{}
