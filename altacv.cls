@@ -143,19 +143,13 @@
 \renewenvironment{quote}{\color{accent}\itshape\large}{\par}
 
 \newcommand{\cvsection}[2][]{%
-  %\begin{spacing}{2.0}
 
   \bigskip%
   \ifstrequal{#1}{}{}{
-  %\begin{doublespace}
   \marginpar{\vspace*{\dimexpr1pt-\baselineskip}\raggedright\input{#1}}
-  %\end{doublespace}
   }%
-%  \begin{singlespace}
-  {\color{heading}\LARGE\bfseries\MakeUppercase{#2}}\\[-1ex]%
+  {\color{heading}\large\bfseries\MakeUppercase{#2}}\\[-1ex]%
   {\color{heading}\rule{\linewidth}{2pt}\par}\medskip
- % \end{singlespace}
-  %\end{spacing}
 }
 
 
