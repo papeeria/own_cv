@@ -1,6 +1,9 @@
 %%%%%%%%%%%%%%%%%
-% This is altacv.cls (v1.1.2, 1 February 2017) written by
+% this .cls created by Anton Lioznov based on 
+% altacv.cls (v1.1.2, 1 February 2017) written by
 % LianTze Lim (liantze@gmail.com).
+%
+% and TwentySecondsCurriculumVitae-LaTex, written by Carmine Spagnuolo 
 %
 %% It may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
@@ -25,7 +28,9 @@
 \RequirePackage{fontawesome}
 \RequirePackage{setspace}
 \RequirePackage{tikz}
-
+\RequirePackage{etoolbox}
+\newtoggle{hrefe}
+\newcommand{\hrefenable}{\toggletrue{hrefe}}
 
 %% v1.1: Optionally load academicons
 \if@academicons
@@ -100,6 +105,7 @@
 \newcommand{\homepagesymbol}{\faChain}
 \newcommand{\locationsymbol}{\faMapMarker}
 \newcommand{\linkedinsymbol}{\faLinkedin}
+\newcommand{\vksymbol}{\faVk}
 \newcommand{\twittersymbol}{\faTwitter}
 \newcommand{\githubsymbol}{\faGithub}
 \newcommand{\orcidsymbol}{\aiOrcid}
@@ -107,17 +113,27 @@
 
 \newcommand{\printinfo}[2]{\mbox{\textcolor{accent}{#1}\hspace{0.5em}#2\hspace{2em}}}
 
+\newcommand{\printhref}[2][http://]{ % add link if enabled
+  \hspace{-0.7em}
+  \iftoggle{hrefe}{
+    \href{#1#2}{#2}
+  }{
+    #2
+  }
+}
+
 \newcommand{\name}[1]{\def\@name{#1}}
 \newcommand{\tagline}[1]{\def\@tagline{#1}}
 \newcommand{\photo}[2]{\def\@photo{#2}\def\@photodiameter{#1}}
-\newcommand{\email}[1]{\printinfo{\emailsymbol}{#1}}
+\newcommand{\email}[1]{
+\printinfo{\emailsymbol}{\printhref[mailto:]{#1}}}
 \newcommand{\mailaddress}[1]{\printinfo{\mailsymbol}{#1}}
 \newcommand{\phone}[1]{\printinfo{\phonesymbol}{#1}}
-\newcommand{\homepage}[1]{\printinfo{\homepagesymbol}{#1}}
-\newcommand{\twitter}[1]{\printinfo{\twittersymbol}{#1}}
-\newcommand{\linkedin}[1]{\printinfo{\linkedinsymbol}{#1}}
-\newcommand{\vk}[1]{\printinfo{VK}{#1}}
-\newcommand{\github}[1]{\printinfo{\githubsymbol}{#1}}
+\newcommand{\homepage}[1]{\printinfo{\homepagesymbol}{\printhref{#1}}}
+\newcommand{\twitter}[1]{\printinfo{\twittersymbol}{\printhref{#1}}}
+\newcommand{\linkedin}[1]{\printinfo{\linkedinsymbol}{\printhref{#1}}}
+\newcommand{\vk}[1]{\printinfo{\vksymbol}{\printhref{#1}}}
+\newcommand{\github}[1]{\printinfo{\githubsymbol}{\printhref{#1}}}
 \newcommand{\orcid}[1]{\printinfo{\orcidsymbol}{#1}}
 \newcommand{\location}[1]{\printinfo{\locationsymbol}{#1}}
 
