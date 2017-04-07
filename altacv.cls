@@ -29,6 +29,7 @@
 \RequirePackage{setspace}
 \RequirePackage{tikz}
 \RequirePackage{etoolbox}
+\RequirePackage{multicol}
 \newtoggle{hrefe}
 \newcommand{\hrefenable}{\toggletrue{hrefe}}
 
@@ -90,10 +91,12 @@
 \setlist{leftmargin=*,labelsep=0.5em,nosep,itemsep=0.25\baselineskip,after=\vskip0.25\baselineskip}
 \setlist[itemize]{label=\itemmarker}
 \RequirePackage{graphicx}
-\RequirePackage{etoolbox}
 \RequirePackage{dashrule}
 \RequirePackage{multirow,tabularx}
 \RequirePackage{changepage}
+\RequirePackage{pgfmath}
+\RequirePackage{siunitx}
+\RequirePackage{pgffor}
 % \RequirePackage{marginfix}
 
 \setlength{\parindent}{0pt}
@@ -157,6 +160,11 @@
 
 \renewenvironment{quote}{\color{accent}\itshape\large}{\par}
 
+\newcommand{\calcnum}[1]{%
+    \pgfmathparse{#1}%
+    \num[group-separator={,},group-minimum-digits=4]{\pgfmathresult}%
+}
+
 \newcommand{\cvsection}[2][]{%
 
   \bigskip%
@@ -201,21 +209,43 @@
 }
 
 \newcommand\skills[1]{ 
+\foreach [count=\totalSkills] \member in {#1} {
+}
+\pgfmathtruncatemacro\halfSkills{\totalSkills / 2}
+\vspace{-1.5em}
 
-\renewcommand{\givenskill}{
-\noindent
+\begin{multicols}{2}
+
 \begin{tikzpicture}
+
 \foreach [count=\i] \x/\y in {#1}
 {
-
+\ifnum\i>\halfSkills
 \draw[fill=maingray,maingray] (0,\i) rectangle (3,\i+0.4);
 \draw[fill=white,skillfill](0,\i) rectangle (\y,\i+0.4);
 \node [above right ] at (0,\i+0.4) {\x};
+\fi
 }
+
 \end{tikzpicture}
+
+\begin{tikzpicture}
+
+\foreach [count=\i] \x/\y in {#1}
+{
+\ifnum\i>\halfSkills
+\else
+\draw[fill=maingray,maingray] (0,\i) rectangle (3,\i+0.4);
+\draw[fill=white,skillfill](0,\i) rectangle (\y,\i+0.4);
+\node [above right ] at (0,\i+0.4) {\x};
+\fi
 }
+
+\end{tikzpicture}
+
+\end{multicols}
+
 }
-\newcommand{\givenskill}{}
 
 
 
