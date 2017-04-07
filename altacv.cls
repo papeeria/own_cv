@@ -49,15 +49,14 @@
 \definecolor{gray}{HTML}{4D4D4D}
 \definecolor{sidecolor}{HTML}{E7E7E7}
 \definecolor{lightgray}{HTML}{999999}
+\definecolor{maingray}{HTML}{B9B9B9}
 
 \definecolor{green}{HTML}{C2E15F}
 \definecolor{orange}{HTML}{FDA333}
 \definecolor{purple}{HTML}{D3A4F9}
 \definecolor{red}{HTML}{FB0B00}
 \definecolor{blue}{HTML}{6CE0F1}
-\definecolor{mainblue}{HTML}{0E5484}
-\definecolor{maingray}{HTML}{B9B9B9}
-\definecolor{maindarkgray}{HTML}{B3B3B3}
+
 \ifdefined\@cv@print
   \colorlet{green}{gray}
   \colorlet{orange}{gray}
@@ -168,27 +167,6 @@
   {\color{heading}\rule{\linewidth}{2pt}\par}\medskip
 }
 
-
-\newcommand{\cvsectiond}[2][]{%
-
-  %\begin{spacing}{2.0}
-
-%  \bigskip%
- % \ifstrequal{#1}{}{}{
-  
- % \marginpar{\vspace*{\dimexpr1pt-\baselineskip}\raggedright\input{#1}}
-%  
- % }%
-%  \begin{singlespace}
-  %\begin{doublespace}
-
-  {\color{heading}\LARGE\bfseries\MakeUppercase{#2}} \\[-1ex]%
-
-  {\color{heading}\rule{\linewidth}{2pt}\par}\medskip
- % \end{singlespace}
-  %\end{spacing}
-}
-
 \newcommand{\cvsubsection}[1]{%
   \smallskip%
   {\color{emphasis}\large\bfseries{#1}\par}\medskip
@@ -216,7 +194,7 @@
   \tikz[baseline]\node[anchor=base,draw=body!30,rounded corners,inner xsep=1ex,inner ysep =0.75ex,text height=1.5ex,text depth=.25ex]{#1};
 }
 
-\newcommand{\cvskill}[2]{%
+\newcommand{\cvskill}[2]{% left from original template, not used
 \textcolor{emphasis}{\textbf{#1}}\hfill
 \foreach \x in {1,...,5}{%
   \space{\ifnumgreater{\x}{#2}{\color{body!30}}{\color{accent}}\faCircle}}\par%
@@ -231,7 +209,7 @@
 {
 
 \draw[fill=maingray,maingray] (0,\i) rectangle (3,\i+0.4);
-\draw[fill=white,mainblue](0,\i) rectangle (\y,\i+0.4);
+\draw[fill=white,skillfill](0,\i) rectangle (\y,\i+0.4);
 \node [above right ] at (0,\i+0.4) {\x};
 }
 \end{tikzpicture}
@@ -242,6 +220,8 @@
 
 
 % Adapted from @Jake's answer at http://tex.stackexchange.com/a/82729/226
+% not used at current version
+% 
 \newcommand{\wheelchart}[3]{%
     \begingroup\centering
     \def\innerradius{#2}%
