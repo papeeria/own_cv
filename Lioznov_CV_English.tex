@@ -43,7 +43,6 @@
 \usepackage[english,russian]{babel}   %% загружает пакет многоязыковой вёрстки
 \usepackage{fontspec} 
 \usepackage{setspace}
-\usepackage{multicol}
 \usepackage{hyperref} 
 
 % If using xelatex or lualatex:
@@ -54,10 +53,12 @@
 \definecolor{SlateGrey}{HTML}{29294F}
 \definecolor{LightGrey}{HTML}{444444}
 \definecolor{MyHead}{HTML}{00005c}
-\colorlet{heading}{MyHead}
-\colorlet{accent}{Mulberry}
-\colorlet{emphasis}{SlateGrey}
-\colorlet{body}{LightGrey}
+\definecolor{MainBlue}{HTML}{0E5484}
+\colorlet{heading}{MyHead} % color of sections
+\colorlet{accent}{Mulberry} % color of icons and accents in (exmpl) cvevent
+\colorlet{emphasis}{SlateGrey} % color of subsections and cvevents
+\colorlet{body}{LightGrey} % main body color
+\colorlet{skillfill}{MainBlue} % color for skills
 
 % Change the bullets for itemize and rating marker
 % for \cvskill if you want to
@@ -72,15 +73,16 @@
 \tagline{graduate student}
 \photo{2.8cm}{me}
 \personalinfo{%
+  \hrefenable % add hrefs in contacts
   % Not all of these are required!
   % You can add your own with \printinfo{symbol}{detail}
   \email{Lavton@gmail.com}
   \phone{+7(904)635-52-51}
   \location{Russia, Saint-Petersburg}
-  \linkedin{\href{https://linkedin.com/in/lavton/}{linkedin.com/in/lavton/}}
-  \github{\href{https://github.com/Lavton}{github.com/Lavton}}
-  \vk{\href{https://vk.com/lavton}{vk.com/lavton}}
-  
+  \linkedin{linkedin.com/in/lavton/}
+  \github{github.com/Lavton}
+  \vk{vk.com/lavton}
+
 
   %% You MUST add the academicons option to \documentclass, then compile with LuaLaTeX or XeLaTeX, if you want to use \orcid or other academicons commands.
 %   \orcid{orcid.org/0000-0000-0000-0000}
