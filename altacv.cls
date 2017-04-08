@@ -127,8 +127,7 @@
 \newcommand{\name}[1]{\def\@name{#1}}
 \newcommand{\tagline}[1]{\def\@tagline{#1}}
 \newcommand{\photo}[2]{\def\@photo{#2}\def\@photodiameter{#1}}
-\newcommand{\email}[1]{
-\printinfo{\emailsymbol}{\printhref[mailto:]{#1}}}
+\newcommand{\email}[1]{\printinfo{\emailsymbol}{\printhref[mailto:]{#1}}}
 \newcommand{\mailaddress}[1]{\printinfo{\mailsymbol}{#1}}
 \newcommand{\phone}[1]{\printinfo{\phonesymbol}{#1}}
 \newcommand{\homepage}[1]{\printinfo{\homepagesymbol}{\printhref{#1}}}

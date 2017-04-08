@@ -34,7 +34,7 @@
 %% folder.
 
 
-% Change the page layout if you need to
+% Измените отступ от краёв, если хотите
 \geometry{left=1cm,right=9cm,marginparwidth=6.8cm,marginparsep=1.2cm,top=0.9cm,bottom=1.25cm}
 % Change the font if you want to.
 
@@ -56,11 +56,11 @@
 \definecolor{LightGrey}{HTML}{444444}
 \definecolor{MyHead}{HTML}{00005c}
 \definecolor{MainBlue}{HTML}{0E5484}
-\colorlet{heading}{MyHead} % color of sections
-\colorlet{accent}{Mulberry} % color of icons and accents in (exmpl) cvevent
-\colorlet{emphasis}{SlateGrey} % color of subsections and cvevents
-\colorlet{body}{LightGrey} % main body color
-\colorlet{skillfill}{MainBlue} % color for skills
+\colorlet{heading}{MyHead} % цвет секций - cvsection
+\colorlet{accent}{Mulberry} % цвет иконок и один из цветов "событий" - cvevents
+\colorlet{emphasis}{SlateGrey} % цвет подсекций и второй цвет для "событий"
+\colorlet{body}{LightGrey} % основной цвет текста
+\colorlet{skillfill}{MainBlue} % цвет навыков
 
 % Change the bullets for itemize and rating marker
 % for \cvskill if you want to
@@ -68,24 +68,25 @@
 %\renewcommand{\ratingmarker}{\faCircle}
 
 %% sample.bib contains your publications
-\addbibresource{sample.bib}
+% \addbibresource{sample.bib}
 
 \begin{document}
-\name{Антон Лиознов}
-\tagline{магистрант}
-\photo{2.8cm}{Globe_High}
+\name{Илья Муромец} % ФИО
+\tagline{русский богатырь} % должность на данный момент
+\photo{2.8cm}{Globe_High} % фото
 
 \personalinfo{%
-  % Not all of these are required!
-  % You can add your own with \printinfo{symbol}{detail}
-  \hrefenable % add hrefs in contacts
+  % Не всё здесь обязательно!
+  % Можете добавить своё с \printinfo{symbol}{detail}
+  \hrefenable % добавить ли гиперссылки в текст
 
-  \email{Lavton@gmail.com}
-  \phone{+7(904)635-52-51}
-  \location{Санкт-Петербург, Россия}
-  \linkedin{linkedin.com/in/lavton/}
-  \github{github.com/Lavton}
-  \vk{vk.com/lavton}
+  \email{example@example.com}\hspace{1.1em}
+  \phone{+7(999)444-44-44}\hspace{1.7em}
+  \location{село Карачарово, Россия}
+  \linkedin{linkedin.com/in/example/}
+  \github{github.com/example}
+  \vk{vk.com/example}
+  \homepage{example.com}
   
 
   %% You MUST add the academicons option to \documentclass, then compile with LuaLaTeX or XeLaTeX, if you want to use \orcid or other academicons commands.
@@ -97,57 +98,52 @@
 \makecvheader
 \end{adjustwidth}
 
-%% Provide the file name containing the sidebar contents as an optional parameter to \cvsection.
+%% Добавьте правую сторону в качестве названия файла в дополнительном параметре \cvsection.
 %% You can always just use \marginpar{...} if you do
 %% not need to align the top of the contents to any
 %% \cvsection title in the "main" bar.
-\cvsection[sample-p1sidebar.tex]{Опыт работы}
+\cvsection[pagesidebar_RU.tex]{Опыт работы}
 
-\cvevent{программист-стажёр}{OKKO-фильмы}{лето 2014}{}
+\cvevent{лежатель на печи}{Дом}{1100 -- 1133}{}
 \begin{itemize}
-\item Оптимизировал работу с внешними источниками
-\item Добился ускорения работы на порядок
-\item Улучшил качество поиска
+\item Лежал на спине
+\item Грел печь
+\item Установил рекорд по продолжительности
 \end{itemize}
-\cvtag{Java} \cvtag{Grails} \cvtag{Postgresql} \cvtag{Git}
+\cvtag{высоконагруженные системы} \cvtag{тестирование} \cvtag{аналитика}
 
 \divider
 
-\cvevent{Тестировщик задач по физике}{Competentum}{Лето 2014}{}
+\cvevent{богатырь}{князь Киевский}{1133 -- 1200}{Киев}
 \begin{itemize}
-\item Искал ошибки в условиях и решениях
-\item Тестировал работу с сайтом с точки зрения пользователя
+\item силушкой богатырской Русь-матушку защищал
+\item достиг процветания княжества
 \end{itemize}
+\cvtag{системы безопасности}
 \divider
 
-\cvevent{Преподаватель физики}{Формула Единства}{лето 2015, зима 2016}{}
+\cvevent{фриланс}{Гарда}{1145 -- 1148}{Германия}
 \begin{itemize}
-\item Сочетал различные способы объяснения материала
-\item Полностью готовил программу
+\item помог добыть невесту
 \end{itemize}
 
 \cvsection{Проекты}
 
-\cvevent{Компьютерное моделирование ускорения космических лучей на фронтах волны сверхновой}{Политехнический Университет}{2014 -- 2015}{}
+\cvevent{Освобождение царевны от змея}{подвиг}{1135}{}
 \begin{itemize}
-\item Построил разностную схему и сравнил со cтохастическими подходами
+\item сразил змея мечом
+\item сразил царевну мужественностью
 \end{itemize}
-\cvtag{C++} \cvtag{Git} \cvtag{gle}
+\cvtag{Python}
 \divider
 
-\cvevent{Онлайн-курс "Основы программирования для Linux"}{Stepik}{2016}{}
+\cvevent{Связал Соловея-Разбойника}{подвиг}{1138}{}
 \begin{itemize}
-\item Работал над серверной частью системы проверки задач и RESTful API
+\item разгромил всю банду
+\item вернул драгоценности в казну
 \end{itemize}
-\cvtag{Python} \cvtag{Docker}
+\cvtag{Ruby} \cvtag{звуковые системы}
 \divider
-
-\cvevent{Руководство и разработка}{Вожатник}{2016 -- н/в}{}
-\begin{itemize}
-\item Создал сайт и системы автоматизации
-\item Занимаюсь сбором статистики
-\end{itemize}
-\cvtag{PHP} \cvtag{YII2} \cvtag{JS} \cvtag{mySQL} \cvtag{Python} \cvtag{R} \cvtag{Slack}
 
 \medskip
 
